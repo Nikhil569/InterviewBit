@@ -1,0 +1,44 @@
+/*
+PROBLEM:
+Reverse a linked list using recursion.
+
+Example :
+Given 1->2->3->4->5->NULL,
+
+return 5->4->3->2->1->NULL.
+*/
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
+ ListNode* reverse(ListNode*current,ListNode* prev){
+    if(current != NULL){
+        ListNode* next = current->next;
+        current->next = prev;
+        return reverse(next , current);
+    }
+    
+    else return prev;
+    
+    //return head;
+ }
+ 
+ 
+ 
+ListNode* Solution::reverseList(ListNode* A) {
+    ListNode* prev=NULL;
+    A = reverse(A,prev);
+    
+    return A;
+    
+    
+}
